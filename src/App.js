@@ -33,7 +33,7 @@ function App() {
   };
   return (
     <>
-      <Navbar title="IIITA" home="Home" about="About" mode={mode} toggleMode={toggleMode} />
+      <Navbar title="Text Utils" home="Home"  mode={mode} toggleMode={toggleMode} />
       
       <Alert alert={alert} />
       
