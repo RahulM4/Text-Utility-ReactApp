@@ -9,7 +9,7 @@ In the project directory, you can run:
 ### `npm start`
 
 Check out here
-Open [https://github.com/RahulM4/Text-Utility](https://github.com/RahulM4/Text-Utility) to view it in your browser.
+Open [https://rahulm4.github.io/Text-Utility/](https://rahulm4.github.io/Text-Utility/) to view it in your browser.
 
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
