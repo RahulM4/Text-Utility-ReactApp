@@ -36,7 +36,7 @@ function Textform(props) {
     props.showAlert("Text has been cleared from Search box", "success");
   };
   const searchhandleClick = () => {
-    console.log("Search word was clicked");
+    //console.log("Search word was clicked");
     let newtext = text.split(/[ ,]+/);
     let count = 0;
     for (let i = 0; i < newtext.length; i++) {
@@ -45,7 +45,7 @@ function Textform(props) {
       }
     }
     if (count === 0) {
-      props.showAlert("No Word Found", "success");
+      props.showAlert("No Word Found", "Oops");
     }
     var counter = document.getElementById("counter");
     counter.innerHTML = count + " words found";
