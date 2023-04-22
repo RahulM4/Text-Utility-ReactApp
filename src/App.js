@@ -37,7 +37,7 @@ function App() {
       
       <Alert alert={alert} />
       
-      <div className="container my-3"> <Textform showAlert={showAlert} heading="Enter the heading messsage" mode={mode} /></div>
+      <div className="container my-3"> <Textform showAlert={showAlert} heading="Use Text Utils - Word Counter | Character Counter" mode={mode} /></div>
     </>
   );
 }

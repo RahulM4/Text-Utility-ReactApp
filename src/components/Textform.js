@@ -16,6 +16,7 @@ function Textform(props) {
     var text = document.getElementById("myTextbox");
     text.select();
     navigator.clipboard.writeText(text.value);
+    document.getSelection().removeAllRanges();
     props.showAlert("Text has been Copied", "success");
 
   };
@@ -64,24 +65,23 @@ function Textform(props) {
   return (
     <>
       <div className="container" style={{ color: props.mode === "dark" ? "white" : "black" }}>
+       
+        <h1 className="mb-4"> {props.heading} </h1>
         <div className="mb-3">
-        <h1> {props.heading} </h1>
-          
         <textarea className="form-control" id="myTextbox" style={{ backgroundColor: props.mode === "dark" ? "#1B4F72" : "white" ,color: props.mode === "dark" ? "white" : "black"}}
             value={text} placeholder="Enter the text here" onChange={handleOnChange} rows="8"></textarea>
-          
-      </div>
+         </div>
       </div>
      
 
-      <div className="btn btn-primary mx-2 my-1" onClick={upperhandleClick}>upperCase</div>
-      <div className="btn btn-primary mx-2 my-1" onClick={lowerhandleClick}>lowerCase</div>
-      <div className="btn btn-primary mx-2 my-1" onClick={clearhandleClick}>Clear Text</div>
-      <div className="btn btn-primary mx-2 my-1" onClick={copyhandleClick}>Copy Text</div>
-      <div className="btn btn-primary mx-2 my-1" onClick={removeExtraSpacehandeClick}>Remove Extra Space</div>
+      <button disabled={text.length===0} className="btn btn-primary mx-2 my-1 "  onClick={upperhandleClick}>upperCase</button>
+      <button disabled={text.length===0} className="btn btn-primary mx-2 my-1" onClick={lowerhandleClick}>lowerCase</button>
+      <button disabled={text.length===0} className="btn btn-primary mx-2 my-1" onClick={clearhandleClick}>Clear Text</button>
+      <button disabled={text.length===0} className="btn btn-primary mx-2 my-1" onClick={copyhandleClick}>Copy Text</button>
+      <button disabled={text.length===0} className="btn btn-primary mx-2 my-1" onClick={removeExtraSpacehandeClick}>Remove Extra Space</button>
       <input className="form-control  my-2 my-1"  placeholder="Search word" id="search-word-box" value={query} onChange={handleOnChange1} style={{ width: "250px",backgroundColor: props.mode === "dark" ? "#1B4F72" : "white" ,color: props.mode === "dark" ? "white" : "black" }}></input>
-      <div className="btn btn-primary mx-2 my-1" onClick={searchhandleClick}> Search word </div>
-      <div className="btn btn-primary mx-2 my-1" onClick={clearhandleClick1}>clear Text</div>
+      <button disabled={query.length===0 || text.length===0} className="btn btn-primary mx-2 my-1" onClick={searchhandleClick}> Search word </button>
+      <button disabled={query.length===0} className="btn btn-primary mx-2 my-1" onClick={clearhandleClick1}>clear Text</button>
       
 
       <div className="container my-3" style={{ color: props.mode === "dark" ? "white" : "black" }}>
@@ -91,7 +91,7 @@ function Textform(props) {
           {text.split(" ").filter((element)=>{return element.length!==0}).length} words and {text.replace(/\s/g, "").length} characters</p>
         <p>{0.008 * text.split(" ").filter((element)=>{return element.length!==0}).length} Minutes read</p>
         <h2>Preview</h2>
-        <p>{text.length>0?text:"Enter something to preview"}</p>
+        <p>{text.length>0?text:"Nothing to preview"}</p>
       </div>
     </>
   );
