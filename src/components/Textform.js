@@ -13,10 +13,10 @@ function Textform(props) {
   };
   const copyhandleClick = () => {
     //console.log("copytext was clicked");
-    var text = document.getElementById("myTextbox");
-    text.select();
-    navigator.clipboard.writeText(text.value);
-    document.getSelection().removeAllRanges();
+    // var text = document.getElementById("myTextbox");
+    // text.select();
+    navigator.clipboard.writeText(text);
+    // document.getSelection().removeAllRanges();
     props.showAlert("Text has been Copied", "success");
 
   };
@@ -38,7 +38,7 @@ function Textform(props) {
   };
   const searchhandleClick = () => {
     //console.log("Search word was clicked");
-    let newtext = text.split(/[ ,]+/);
+    let newtext = text.split(/\s+/);
     let count = 0;
     for (let i = 0; i < newtext.length; i++) {
       if (newtext[i] === query) {
@@ -88,7 +88,7 @@ function Textform(props) {
       <div className="counter" id="counter" > 0 words found </div>
         <h2>Your text summary</h2>
         <p>
-          {text.split(" ").filter((element)=>{return element.length!==0}).length} words and {text.replace(/\s/g, "").length} characters</p>
+          {text.split(/\s+/).filter((element)=>{return element.length!==0}).length} words and {text.replace(/\s/g, "").length} characters</p>
         <p>{0.008 * text.split(" ").filter((element)=>{return element.length!==0}).length} Minutes read</p>
         <h2>Preview</h2>
         <p>{text.length>0?text:"Nothing to preview"}</p>
